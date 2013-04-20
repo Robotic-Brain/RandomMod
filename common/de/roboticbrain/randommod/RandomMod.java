@@ -8,6 +8,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import de.roboticbrain.randommod.block.ModBlocks;
 import de.roboticbrain.randommod.lib.Reference;
 
 @Mod(modid = Reference.MOD_ID,
@@ -20,6 +21,7 @@ public class RandomMod {
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
         
+        ModBlocks.init();
     }
     
     @Init
