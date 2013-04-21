@@ -13,6 +13,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import de.roboticbrain.randommod.block.ModBlocks;
 import de.roboticbrain.randommod.configuration.ConfigurationHandler;
+import de.roboticbrain.randommod.core.helper.LogHelper;
 import de.roboticbrain.randommod.creativetab.CreativeTabRandomMod;
 import de.roboticbrain.randommod.lib.Reference;
 
@@ -27,6 +28,9 @@ public class RandomMod {
 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
+        // Initialize logger
+        LogHelper.init();
+        
         // Initialize the configuration
         ConfigurationHandler.init(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.CHANNEL_NAME + File.separator + Reference.MOD_ID + ".cfg"));
         
