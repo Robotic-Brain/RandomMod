@@ -8,6 +8,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Icon;
@@ -70,5 +72,23 @@ public class BlockPlayerAccess extends CommonBlockBase {
         if (world.getBlockId(x, y, z) == this.blockID) {
             world.scheduleBlockUpdate(x, y, z, this.blockID, this.tickRate(world));
         }
+    }
+    
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
+        NBTTagCompound data = player.getEntityData();
+        NBTTagCompound mod_data = data.getCompoundTag(Reference.MOD_ID);
+        
+        if (!world.isRemote) {
+            
+            data.setInteger("someRandomJunk", 8);
+            
+            int count = mod_data.getInteger("clickCount");
+            player.sendChatToPlayer("Test: " + count);
+            mod_data.setInteger("clickCount", ++count);
+            data.setTag(Reference.MOD_ID, mod_data);
+        }
+        
+        return true;
     }
 }

@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.FMLLog;
 import de.roboticbrain.randommod.lib.BlockIds;
+import de.roboticbrain.randommod.lib.ItemIds;
 import de.roboticbrain.randommod.lib.Reference;
 import de.roboticbrain.randommod.lib.Strings;
 //import de.roboticbrain.randommod.lib.ItemIds;
@@ -40,6 +41,7 @@ public class ConfigurationHandler {
 
             /* Block configs */
             BlockIds.PLAYER_ACCESS_BLOCK = configuration.getBlock(Strings.PLAYER_ACCESS_BLOCK_NAME, BlockIds.PLAYER_ACCESS_BLOCK_DEFAULT).getInt(BlockIds.PLAYER_ACCESS_BLOCK_DEFAULT);
+            ItemIds.BACK_PACK = configuration.getBlock(Strings.BACK_PACK_NAME, ItemIds.BACK_PACK_DEFAULT).getInt(ItemIds.BACK_PACK_DEFAULT);
 
             /* Item configs */
             /*ItemIds.MINIUM_SHARD = configuration.getItem(Strings.MINIUM_SHARD_NAME, ItemIds.MINIUM_SHARD_DEFAULT).getInt(ItemIds.MINIUM_SHARD_DEFAULT);
